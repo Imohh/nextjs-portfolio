@@ -17,18 +17,18 @@ const HeroSection = () => {
         >
           <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-8xl lg:leading-normal font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
-              Hello, I&apos;m{" "}
+              Hello, we&apos;re{" "}
             </span>
             <br></br>
             <TypeAnimation
               sequence={[
-                "Judy",
+                "Oprime Tech",
                 1000,
-                "Web Developer",
+                "Web Development",
                 1000,
-                "Mobile Developer",
+                "Mobile Development",
                 1000,
-                "UI/UX Designer",
+                "UI/UX Design",
                 1000,
               ]}
               wrapper="span"
@@ -37,8 +37,9 @@ const HeroSection = () => {
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-            voluptuous.
+            Established in 2020, Oprime Tech is a pioneering force in the digital realm, 
+          dedicated to helping brands thrive in the online landscape. We specialize in crafting exceptional 
+          websites and innovative mobile applications tailored to meet your unique business needs.
           </p>
           <div>
             <Link

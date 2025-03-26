@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
+import InstagramIcon from "../../../public/instagram.png";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -58,6 +59,9 @@ const EmailSection = () => {
         <div className="socials flex flex-row gap-2">
           <Link href="github.com">
             <Image src={GithubIcon} alt="Github Icon" />
+          </Link>
+          <Link href="instagram.com/oprime.ng">
+            <Image src={InstagramIcon} alt="Instagram Icon" />
           </Link>
           <Link href="linkedin.com">
             <Image src={LinkedinIcon} alt="Linkedin Icon" />

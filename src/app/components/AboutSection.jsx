@@ -57,12 +57,10 @@ const AboutSection = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-            I am a full stack web developer with a passion for creating
-            interactive and responsive web applications. I have experience
-            working with JavaScript, React, Redux, Node.js, Express, PostgreSQL,
-            Sequelize, HTML, CSS, and Git. I am a quick learner and I am always
-            looking to expand my knowledge and skill set. I am a team player and
-            I am excited to work with others to create amazing applications.
+            At Oprime Tech, we believe in the power of digital transformation. Our experienced team of highly 
+            skilled developers is passionate about creating seamless online experiences that captivate your audience. 
+            Whether you're a startup looking to make a mark or an established business aiming for digital evolution, 
+            we have the expertise to make it happen.
           </p>
           <div className="flex flex-row justify-start mt-8">
             <TabButton
