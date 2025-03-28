@@ -59,7 +59,7 @@ const AboutSection = () => {
           <p className="text-base lg:text-lg">
             At Oprime Tech, we believe in the power of digital transformation. Our experienced team of highly 
             skilled developers is passionate about creating seamless online experiences that captivate your audience. 
-            Whether you're a startup looking to make a mark or an established business aiming for digital evolution, 
+            Whether you&apos;re a startup looking to make a mark or an established business aiming for digital evolution, 
             we have the expertise to make it happen.
           </p>
           {/*<div className="flex flex-row justify-start mt-8">
