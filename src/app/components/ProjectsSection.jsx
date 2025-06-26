@@ -11,7 +11,6 @@ const projectsData = [
     description: "Portfolio website for a creative professional",
     image: "/images/projects/sope.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
     previewUrl: "https://sopeadelaja.com/",
   },
   {
@@ -20,7 +19,6 @@ const projectsData = [
     description: "Property listing website with filters that enables users search for properies with ease.",
     image: "/images/projects/chekam.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
     previewUrl: "https://chekam.com",
   },
   {
@@ -29,7 +27,6 @@ const projectsData = [
     description: "Storytelling website for a company based in Africa.",
     image: "/images/projects/recreate.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
     previewUrl: "https://recreateafrica.org",
   },
   {
@@ -38,7 +35,6 @@ const projectsData = [
     description: "A photography website",
     image: "/images/projects/glintz.png",
     tag: ["All", "Mobile"],
-    gitUrl: "/",
     previewUrl: "https://glintzphotography.org",
   },
   {
@@ -47,7 +43,6 @@ const projectsData = [
     description: "Portfolio website for a seasoned commercial photographer and advertising consultant.",
     image: "/images/projects/joel.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
     previewUrl: "https://joeladu.com",
   },
   {
@@ -56,7 +51,6 @@ const projectsData = [
     description: "Delivery app where users track their orders and also see details of the delivery person assigned to them.",
     image: "/images/projects/grep.png",
     tag: ["All", "Web"],
-    gitUrl: "/",
     previewUrl: "https://grep-website.vercel.app",
   },
 ];
@@ -115,7 +109,6 @@ const ProjectsSection = () => {
               title={project.title}
               description={project.description}
               imgUrl={project.image}
-              gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
             />
           </motion.li>

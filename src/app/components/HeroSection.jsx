@@ -15,18 +15,18 @@ const HeroSection = () => {
           transition={{ duration: 0.5 }}
           className="col-span-8 place-self-center text-center sm:text-left justify-self-start"
         >
-          <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-8xl lg:leading-normal font-extrabold">
+          <h1 className="text-white mb-4 text-4xl sm:text-3xl lg:text-4xl lg:leading-normal font-extrabold">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-600">
-              Hello, we&apos;re{" "}
+              Hello, we&apos;re{" "} Oprime Tech
+              <br></br>
+              Experts in:
             </span>
             <br></br>
             <TypeAnimation
               sequence={[
-                "Oprime Tech",
-                1000,
                 "Web Development",
                 1000,
-                "Mobile App",
+                "Mobile App Development",
                 1000,
                 "UI/UX Design",
                 1000,
