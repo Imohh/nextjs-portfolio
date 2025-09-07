@@ -1,5 +1,9 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Inter, Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+});
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +19,7 @@ export default function RootLayout({ children }) {
         <link rel="apple-touch-icon" href="/images/logo.png" />
         <link rel="icon" href="/images/logo.png" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={montserrat.className}>{children}</body>
     </html>
   )
 }
