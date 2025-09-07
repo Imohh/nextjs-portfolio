@@ -8,6 +8,11 @@ import Image from "next/image";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    subject: '',
+    email: '',
+    message: '',
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,7 +22,7 @@ const EmailSection = () => {
       message: e.target.message.value,
     };
     const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
+    const endpoint = "https://oprime-backend.vercel.app/api/send";
 
     // Form the request for sending data to the server.
     const options = {
@@ -40,6 +45,41 @@ const EmailSection = () => {
     }
   };
 
+  const contactForm = async (e) => {
+    e.preventDefault()
+    try {
+      // const response = await fetch('http://localhost:4000/contact', {
+      const response = await fetch('https://oprime-backend.vercel.app/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    });
+    if (response.ok) {
+      console.log('Form submitted successfully');
+      alert('Form submitted successfully')
+      // Reset the form data after successful submission
+      setFormData({
+        subject: '',
+        email: '',
+        message: '',
+      });
+    } else {
+      console.error('Form submission failed');
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+  }
+}
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
   return (
     <section
       id="contact"
@@ -74,7 +114,7 @@ const EmailSection = () => {
             Email sent successfully!
           </p>
         ) : (
-          <form className="flex flex-col" onSubmit={handleSubmit}>
+          <form className="flex flex-col" onSubmit={contactForm}>
             <div className="mb-6">
               <label
                 htmlFor="email"
@@ -86,6 +126,9 @@ const EmailSection = () => {
                 name="email"
                 type="email"
                 id="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
                 required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="jacob@google.com"
@@ -102,6 +145,8 @@ const EmailSection = () => {
                 name="subject"
                 type="text"
                 id="subject"
+                value={formData.subject}
+                onChange={handleInputChange}
                 required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Just saying hi"
@@ -117,6 +162,8 @@ const EmailSection = () => {
               <textarea
                 name="message"
                 id="message"
+                value={formData.message}
+                onChange={handleInputChange}
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder="Let's talk about..."
               />
