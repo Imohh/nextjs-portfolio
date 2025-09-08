@@ -48,7 +48,7 @@ const EmailSection = () => {
         <p className="text-[#ADB7BE] mb-4 max-w-md">
           We&apos;re currently looking for new opportunities, our inbox is always
           open. Whether you have a question or just want to say hi, we&apos;ll
-          try my best to get back to you!
+          try our best to get back to you!
         </p>
         <div className="socials flex flex-row gap-2">
           <Link href="https://instagram.com/oprime.ng">
