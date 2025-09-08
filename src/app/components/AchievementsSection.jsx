@@ -21,10 +21,6 @@ const achievementsList = [
     value: "100,000",
   },
   {
-    metric: "Team Members",
-    value: "3",
-  },
-  {
     metric: "Years",
     value: "5",
   },
