@@ -29,6 +29,25 @@ const navLinks = [
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    
+    // Close mobile menu if open
+    setNavbarOpen(false);
+    
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      const navbarHeight = document.querySelector('nav').offsetHeight;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20; // 20px extra padding
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
       <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
@@ -59,13 +78,24 @@ const Navbar = () => {
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <NavLink href={link.path} title={link.title} />
+                <a
+                  href={link.path}
+                  onClick={(e) => handleSmoothScroll(e, link.path)}
+                  className="block py-2 pl-3 pr-4 text-[#ADB7BE] sm:text-xl rounded md:p-0 hover:text-white cursor-pointer transition-colors duration-300"
+                >
+                  {link.title}
+                </a>
               </li>
             ))}
           </ul>
         </div>
       </div>
-      {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
+      {navbarOpen ? (
+        <MenuOverlay 
+          links={navLinks} 
+          onLinkClick={handleSmoothScroll}
+        />
+      ) : null}
     </nav>
   );
 };
