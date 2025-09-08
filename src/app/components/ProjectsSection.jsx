@@ -8,7 +8,7 @@ const projectsData = [
   {
     id: 1,
     title: "Sope Adelaja Portfolio",
-    description: "Portfolio website for a creative professional",
+    description: "Portfolio website for a creative professional.",
     image: "/images/projects/sope.png",
     tag: ["All", "Web"],
     previewUrl: "https://sopeadelaja.com/",
@@ -23,6 +23,14 @@ const projectsData = [
   },
   {
     id: 3,
+    title: "Learnbuddie",
+    description: "A comprehensive learning platform for students.",
+    image: "/images/projects/learnbuddie.png",
+    tag: ["All", "Web"],
+    previewUrl: "https://learnbuddie.com",
+  },
+  {
+    id: 4,
     title: "Recreate Africa",
     description: "Storytelling website for a company based in Africa.",
     image: "/images/projects/recreate.png",
@@ -30,7 +38,7 @@ const projectsData = [
     previewUrl: "https://recreateafrica.org",
   },
   {
-    id: 4,
+    id: 5,
     title: "Glintz Photography",
     description: "A photography website",
     image: "/images/projects/glintz.png",
@@ -38,7 +46,7 @@ const projectsData = [
     previewUrl: "https://glintzphotography.org",
   },
   {
-    id: 5,
+    id: 6,
     title: "JoelAdu Portfolio",
     description: "Portfolio website for a seasoned commercial photographer and advertising consultant.",
     image: "/images/projects/joel.png",
@@ -46,7 +54,7 @@ const projectsData = [
     previewUrl: "https://joeladu.com",
   },
   {
-    id: 6,
+    id: 7,
     title: "Grep",
     description: "Delivery app where users track their orders and also see details of the delivery person assigned to them.",
     image: "/images/projects/grep.png",
