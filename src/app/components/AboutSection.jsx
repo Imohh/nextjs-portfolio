@@ -58,7 +58,7 @@ const AboutSection = () => {
           <h2 className="text-4xl font-bold text-white mb-4">About Us</h2>
           <p className="text-base lg:text-lg">
             At Oprime Tech, we believe in the power of digital transformation. Our experienced team of highly 
-            skilled developers is passionate about creating seamless online experiences that captivate your audience. 
+            skilled developers are passionate about creating seamless online experiences that captivate your audience. 
             Whether you&apos;re a startup looking to make a mark or an established business aiming for digital evolution, 
             we have the expertise to make it happen.
           </p>
