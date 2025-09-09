@@ -51,7 +51,7 @@ const EmailSection = () => {
           try our best to get back to you!
         </p>
         <div className="socials flex flex-row gap-2">
-          <Link href="https://instagram.com/oprime.ng">
+          <Link href="https://instagram.com/oprime.ng" target="_blank" rel="noopener noreferrer">
             <Image src={InstagramIcon} alt="Instagram Icon" />
           </Link>
         </div>
