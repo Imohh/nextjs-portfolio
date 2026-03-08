@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors */
+  --color-lime: #d4ff00;
+  --color-dark-green: #0a1f0f;
+  --color-dark: #0a0a0a;
+  --color-grey-1: #1a1a1a;
+  --color-grey-2: #2a2a2a;
+  --color-light: #fafafa;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Animation */
+  --duration-default: 0.75s;
+  --timing-smooth: cubic-bezier(0.65, 0.05, 0, 1);
+
+  /* Typography */
+  --font-size-display: clamp(3rem, 8vw, 8.25rem);
+
+  /* Foreground/Background */
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 10;
+  --background-end-rgb: 10, 10, 10;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scrolling */
+  overflow-x: hidden;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: var(--color-dark);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+}
+
+p {
+  font-family: var(--font-inter), sans-serif;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background-color: var(--color-lime);
+  color: var(--color-black);
+}
+
+/* Hide scrollbar but keep functionality */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity var(--duration-default) var(--timing-smooth),
+                transform var(--duration-default) var(--timing-smooth);
+  }
+
+  .magnetic-btn {
+    transition: transform 0.2s ease-out;
+  }
+
+  .clip-reveal {
+    clip-path: ellipse(0% 0% at 50% 50%);
+    transition: clip-path var(--duration-default) var(--timing-smooth);
+  }
+
+  .clip-reveal:hover {
+    clip-path: ellipse(100% 120% at 50% 50%);
+  }
+}
+
+/* Custom components */
+@layer components {
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-lime) 0%, #86efac 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-primary {
+    position: relative;
+    padding: 1rem 2rem;
+    background: var(--color-lime);
+    color: var(--color-black);
+    font-weight: 600;
+    border-radius: 9999px;
+    overflow: hidden;
+    transition: transform 0.2s var(--timing-smooth);
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.05);
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn-primary:hover::before {
+    opacity: 1;
+  }
+}
