@@ -159,7 +159,7 @@ const HeroSection = () => {
               transition={{ duration: 0.75, delay: 1 }}
               className="text-secondary-300 text-lg lg:text-xl mb-8 max-w-2xl text-balance mx-auto lg:mx-0"
             >
-              Established in 2020, we're a pioneering force in the digital realm,
+              Established in 2020, we&apos;re a pioneering force in the digital realm,
               dedicated to helping brands thrive in the online landscape through exceptional
               websites and innovative mobile applications.
             </motion.p>

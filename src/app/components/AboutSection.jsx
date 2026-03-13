@@ -54,7 +54,7 @@ const AboutSection = () => {
             <span className="block gradient-text">Digital Reality</span>
           </h2>
           <p className="text-xl text-secondary-300 max-w-3xl mx-auto text-balance">
-            We're not just developers—we're digital architects crafting exceptional
+            We&apos;re not just developers—we&apos;re digital architects crafting exceptional
             experiences that drive real business results.
           </p>
         </ScrollReveal>
@@ -110,7 +110,7 @@ const AboutSection = () => {
                   online experiences that captivate your audience.
                 </p>
                 <p className="text-lg text-secondary-200 leading-relaxed mt-4">
-                  Whether you're a startup looking to make a mark or an established business aiming for
+                  Whether you&apos;re a startup looking to make a mark or an established business aiming for
                   digital evolution, we have the expertise to make it happen. We combine cutting-edge
                   technology with creative excellence to deliver solutions that exceed expectations.
                 </p>

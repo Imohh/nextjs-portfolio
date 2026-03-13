@@ -60,11 +60,11 @@ const EmailSection = () => {
             ✦ GET IN TOUCH
           </motion.span>
           <h2 className="text-display-sm lg:text-display-md font-black text-white mb-6">
-            Let's Create Something
+            Let&apos;s Create Something
             <span className="block gradient-text">Amazing Together</span>
           </h2>
           <p className="text-xl text-secondary-300 max-w-3xl mx-auto text-balance">
-            Ready to transform your digital presence? Let's discuss your project
+            Ready to transform your digital presence? Let&apos;s discuss your project
             and bring your vision to life.
           </p>
         </ScrollReveal>
@@ -75,10 +75,10 @@ const EmailSection = () => {
             <div className="space-y-8">
               <div>
                 <h3 className="text-3xl font-bold text-white mb-4">
-                  Let's Connect
+                  Let&apos;s Connect
                 </h3>
                 <p className="text-lg text-secondary-300 leading-relaxed mb-6">
-                  We're always looking for new opportunities to create exceptional
+                  We&apos;re always looking for new opportunities to create exceptional
                   digital experiences. Whether you have a question, a project idea,
                   or just want to say hi, our inbox is always open!
                 </p>
@@ -153,7 +153,7 @@ const EmailSection = () => {
                     </svg>
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
-                  <p className="text-secondary-300">We'll get back to you as soon as possible.</p>
+                  <p className="text-secondary-300">We&apos;ll get back to you as soon as possible.</p>
                 </motion.div>
               ) : (
                 <form className="relative z-10 space-y-6" onSubmit={handleSubmit}>

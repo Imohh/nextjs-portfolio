@@ -132,7 +132,7 @@ function CTAButton({ onClick }) {
           animate={{ letterSpacing: hovered ? "0.06em" : "0.01em" }}
           transition={{ duration: 0.3 }}
         >
-          Let's Talk
+          Let&apos;s Talk
         </motion.span>
 
         {/* Arrow that slides in on hover */}
@@ -229,7 +229,7 @@ function MobileMenu({ open, links, onLinkClick, onClose }) {
                 className="flex items-center justify-center w-full py-3.5 rounded-full font-bold text-base cursor-pointer"
                 style={{ backgroundColor: "#c8f135", color: "#0a0a0a" }}
               >
-                Let's Talk →
+                Let&apos;s Talk →
               </a>
             </motion.div>
           </motion.div>
