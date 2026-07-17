@@ -57,7 +57,7 @@ const EmailSection = () => {
             whileInView={{ opacity: 1 }}
             className="inline-block px-4 py-2 bg-accent-lime/10 border border-accent-lime/20 rounded-full text-accent-lime text-sm font-medium tracking-wide mb-6"
           >
-            ✦ GET IN TOUCH
+            GET IN TOUCH
           </motion.span>
           <h2 className="text-display-sm lg:text-display-md font-black text-white mb-6">
             Let&apos;s Create Something

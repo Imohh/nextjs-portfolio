@@ -74,38 +74,40 @@ module.exports = {
     },
     colors: {
       ...colors,
+      // Warm gold / bronze family (drives gradients + glows)
       primary: {
-        50: '#f0fdf4',
-        100: '#dcfce7',
-        200: '#bbf7d0',
-        300: '#86efac',
-        400: '#4ade80',
-        500: '#22c55e', // Lime green
-        600: '#16a34a',
-        700: '#15803d',
-        800: '#166534',
-        900: '#14532d',
+        50: '#faf6ec',
+        100: '#f2e8cf',
+        200: '#e6d3a2',
+        300: '#dabd76',
+        400: '#cfa757',
+        500: '#c79a45',
+        600: '#a87f36',
+        700: '#84632c',
+        800: '#5f4822',
+        900: '#3d2f18',
       },
+      // Warm neutral greys (text + surfaces)
       secondary: {
-        50: '#fafafa',
-        100: '#f4f4f5',
-        200: '#e4e4e7',
-        300: '#d4d4d8',
-        400: '#a1a1aa',
-        500: '#71717a',
-        600: '#52525b',
-        700: '#3f3f46',
-        800: '#27272a',
-        900: '#18181b',
+        50: '#f7f4ee',
+        100: '#ece7dd',
+        200: '#d8d1c3',
+        300: '#c3baa9',
+        400: '#9d9482',
+        500: '#7a7264',
+        600: '#5b5449',
+        700: '#423d34',
+        800: '#2a2620',
+        900: '#1a1712',
       },
       accent: {
-        lime: '#d4ff00', // Bright lime like Lando's site
-        'dark-green': '#0a1f0f',
-        'grey-1': '#1a1a1a',
-        'grey-2': '#2a2a2a',
+        lime: '#c79a45', // muted amber/gold (was neon lime)
+        'dark-green': '#1c1712', // warm dark tint used in gradients
+        'grey-1': '#1a1712',
+        'grey-2': '#26221b',
       },
-      dark: '#0a0a0a',
-      light: '#fafafa',
+      dark: '#14120e', // warm charcoal (was pure black)
+      light: '#f2ede3', // warm off-white
     },
   },
   plugins: [],

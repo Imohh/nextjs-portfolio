@@ -72,7 +72,7 @@ const HeroSection = () => {
 
       {/* Floating orbs */}
       <motion.div
-        className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-lime/10 rounded-full blur-3xl"
+        className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-lime/[0.06] rounded-full blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           x: [0, 30, 0],
@@ -85,7 +85,7 @@ const HeroSection = () => {
         }}
       />
       <motion.div
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl"
+        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-500/[0.06] rounded-full blur-3xl"
         animate={{
           scale: [1, 1.3, 1],
           x: [0, -40, 0],
@@ -112,7 +112,7 @@ const HeroSection = () => {
               className="mb-6"
             >
               <span className="inline-block px-4 py-2 bg-accent-lime/10 border border-accent-lime/20 rounded-full text-accent-lime text-sm font-medium tracking-wide">
-                ✦ DIGITAL EXCELLENCE
+                DIGITAL EXCELLENCE
               </span>
             </motion.div>
 
@@ -159,7 +159,7 @@ const HeroSection = () => {
               transition={{ duration: 0.75, delay: 1 }}
               className="text-secondary-300 text-lg lg:text-xl mb-8 max-w-2xl text-balance mx-auto lg:mx-0"
             >
-              Established in 2020, we&apos;re a pioneering force in the digital realm,
+              Established in 2021, we&apos;re a pioneering force in the digital realm,
               dedicated to helping brands thrive in the online landscape through exceptional
               websites and innovative mobile applications.
             </motion.p>
@@ -203,18 +203,20 @@ const HeroSection = () => {
               className="relative w-full max-w-[500px] mx-auto"
             >
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-accent-lime/20 rounded-full blur-3xl scale-110 animate-pulse" />
+              <div className="absolute inset-0 bg-accent-lime/10 rounded-[2rem] blur-3xl scale-105" />
 
               {/* Main image container */}
-              <div className="relative rounded-full bg-gradient-to-br from-accent-lime/20 to-primary-500/20 p-1">
-                <div className="rounded-full bg-accent-grey-1 w-full aspect-square relative overflow-hidden">
+              <div className="relative rounded-[2rem] bg-gradient-to-br from-accent-lime/20 to-primary-500/20 p-1">
+                <div className="rounded-[1.85rem] bg-accent-grey-1 w-full aspect-[3/4] relative overflow-hidden">
                   <Image
-                    src="/images/hero-image.png"
+                    src="/images/hero-images.jpeg"
                     alt="Oprime Tech"
                     fill
-                    className="object-cover scale-110 hover:scale-125 transition-transform duration-700"
+                    className="object-cover object-center hover:scale-105 transition-transform duration-700"
                     priority
                   />
+                  {/* Subtle bottom fade for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/40 to-transparent" />
                 </div>
               </div>
 

@@ -10,7 +10,6 @@ const orbitron = Orbitron({
 });
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
 
   const footerLinks = [
     { title: "About", href: "#about" },
@@ -35,7 +34,7 @@ const Footer = () => {
               <span className="gradient-text">OPRIME TECH</span>
             </Link>
             <p className="text-secondary-300 text-sm lg:text-base max-w-sm">
-              Crafting exceptional digital experiences that drive real business results since 2020.
+              Crafting exceptional digital experiences that drive real business results since 2021.
             </p>
           </motion.div>
 
@@ -72,8 +71,8 @@ const Footer = () => {
             <div className="space-y-3 text-sm lg:text-base">
               <p className="text-secondary-300">
                 <span className="text-accent-lime">Email:</span>{" "}
-                <a href="mailto:hello@oprime.tech" className="hover:text-white transition-colors">
-                  hello@oprime.tech
+                <a href="mailto:hello@oprimetech.com.ng" className="hover:text-white transition-colors">
+                  hello@primetech.com.ng
                 </a>
               </p>
               <p className="text-secondary-300">
@@ -92,7 +91,7 @@ const Footer = () => {
           className="pt-8 border-t border-accent-lime/10 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-secondary-400 text-sm text-center md:text-left">
-            © {currentYear} Oprime Tech. All rights reserved.
+            © 2021 Oprime Tech. All rights reserved.
           </p>
 
           <div className="flex items-center gap-2 text-sm text-secondary-400">

@@ -30,7 +30,7 @@ const Marquee = ({ text = "OPRIME TECH", reverse = false, speed = 30 }) => {
               <span className="text-6xl lg:text-8xl xl:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-accent-lime to-primary-500 mx-8">
                 {text}
               </span>
-              <span className="text-4xl lg:text-6xl mx-8 text-accent-lime">✦</span>
+              <span className="text-4xl lg:text-6xl mx-8 text-accent-lime/70">—</span>
             </div>
           ))}
         </motion.div>
@@ -44,7 +44,7 @@ const Marquee = ({ text = "OPRIME TECH", reverse = false, speed = 30 }) => {
               <span className="text-6xl lg:text-8xl xl:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-accent-lime to-primary-500 mx-8">
                 {text}
               </span>
-              <span className="text-4xl lg:text-6xl mx-8 text-accent-lime">✦</span>
+              <span className="text-4xl lg:text-6xl mx-8 text-accent-lime/70">—</span>
             </div>
           ))}
         </motion.div>

@@ -51,14 +51,14 @@ function NavLink({ link, onClick, index }) {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         className="relative block px-5 py-2 text-sm font-medium tracking-wide cursor-pointer select-none"
-        style={{ color: hovered ? "#c8f135" : "rgba(255,255,255,0.6)" }}
+        style={{ color: hovered ? "#c79a45" : "rgba(255,255,255,0.6)" }}
       >
         {/* Letter-by-letter stagger on hover */}
         <span className="relative z-10 flex overflow-hidden">
           {link.title.split("").map((char, i) => (
             <motion.span
               key={i}
-              animate={{ y: hovered ? -2 : 0, color: hovered ? "#c8f135" : "rgba(255,255,255,0.6)" }}
+              animate={{ y: hovered ? -2 : 0, color: hovered ? "#c79a45" : "rgba(255,255,255,0.6)" }}
               transition={{ duration: 0.25, delay: i * 0.03, ease: "easeOut" }}
               style={{ display: "inline-block" }}
             >
@@ -70,7 +70,7 @@ function NavLink({ link, onClick, index }) {
         {/* Slim underline that draws from center */}
         <motion.span
           className="absolute bottom-0.5 left-1/2 h-px"
-          style={{ backgroundColor: "#c8f135", translateX: "-50%" }}
+          style={{ backgroundColor: "#c79a45", translateX: "-50%" }}
           animate={{ width: hovered ? "60%" : "0%" }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         />
@@ -78,7 +78,7 @@ function NavLink({ link, onClick, index }) {
         {/* Soft glow pill behind text */}
         <motion.span
           className="absolute inset-0 rounded-full"
-          style={{ backgroundColor: "#c8f135" }}
+          style={{ backgroundColor: "#c79a45" }}
           animate={{ opacity: hovered ? 0.07 : 0, scale: hovered ? 1 : 0.85 }}
           transition={{ duration: 0.25 }}
         />
@@ -111,7 +111,7 @@ function CTAButton({ onClick }) {
         {/* Animated background fill */}
         <motion.span
           className="absolute inset-0 rounded-full"
-          style={{ backgroundColor: "#c8f135" }}
+          style={{ backgroundColor: "#c79a45" }}
           animate={{ scale: hovered ? 1.06 : 1 }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         />
@@ -128,7 +128,7 @@ function CTAButton({ onClick }) {
 
         <motion.span
           className="relative z-10 font-bold"
-          style={{ color: "#0a0a0a" }}
+          style={{ color: "#14120e" }}
           animate={{ letterSpacing: hovered ? "0.06em" : "0.01em" }}
           transition={{ duration: 0.3 }}
         >
@@ -138,7 +138,7 @@ function CTAButton({ onClick }) {
         {/* Arrow that slides in on hover */}
         <motion.span
           className="relative z-10 text-base"
-          style={{ color: "#0a0a0a" }}
+          style={{ color: "#14120e" }}
           animate={{ x: hovered ? 2 : -4, opacity: hovered ? 1 : 0 }}
           transition={{ duration: 0.25 }}
         >
@@ -170,8 +170,8 @@ function MobileMenu({ open, links, onLinkClick, onClose }) {
           <motion.div
             className="fixed top-0 right-0 bottom-0 z-50 w-72 flex flex-col"
             style={{
-              background: "linear-gradient(160deg, #0f0f0f 0%, #111a0a 100%)",
-              borderLeft: "1px solid rgba(200,241,53,0.12)",
+              background: "linear-gradient(160deg, #17140f 0%, #1c1712 100%)",
+              borderLeft: "1px solid rgba(199,154,69,0.12)",
             }}
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -185,7 +185,7 @@ function MobileMenu({ open, links, onLinkClick, onClose }) {
                 whileHover={{ rotate: 90, scale: 1.1 }}
                 transition={{ duration: 0.2 }}
                 className="w-9 h-9 flex items-center justify-center rounded-full border text-white text-xl"
-                style={{ borderColor: "rgba(200,241,53,0.25)" }}
+                style={{ borderColor: "rgba(199,154,69,0.25)" }}
               >
                 ✕
               </motion.button>
@@ -203,11 +203,11 @@ function MobileMenu({ open, links, onLinkClick, onClose }) {
                   transition={{ duration: 0.4, delay: 0.05 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
                   className="group flex items-center gap-3 py-4 border-b text-2xl font-semibold cursor-pointer"
                   style={{ borderColor: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.7)" }}
-                  whileHover={{ x: 6, color: "#c8f135" }}
+                  whileHover={{ x: 6, color: "#c79a45" }}
                 >
                   <motion.span
                     className="text-xs font-mono opacity-40 group-hover:opacity-100"
-                    style={{ color: "#c8f135" }}
+                    style={{ color: "#c79a45" }}
                   >
                     0{i + 1}
                   </motion.span>
@@ -227,7 +227,7 @@ function MobileMenu({ open, links, onLinkClick, onClose }) {
                 href="#contact"
                 onClick={(e) => { onLinkClick(e, "#contact"); onClose(); }}
                 className="flex items-center justify-center w-full py-3.5 rounded-full font-bold text-base cursor-pointer"
-                style={{ backgroundColor: "#c8f135", color: "#0a0a0a" }}
+                style={{ backgroundColor: "#c79a45", color: "#14120e" }}
               >
                 Let&apos;s Talk →
               </a>
@@ -270,7 +270,7 @@ const Navbar = () => {
           backgroundColor: useTransform(bgOpacity, (o) => `rgba(10,10,10,${o})`),
           backdropFilter: useTransform(scrollY, [0, 80], ["blur(0px)", "blur(16px)"]),
           WebkitBackdropFilter: useTransform(scrollY, [0, 80], ["blur(0px)", "blur(16px)"]),
-          borderBottom: `1px solid rgba(200,241,53,${useTransform(borderOpacity, (o) => o)})`,
+          borderBottom: `1px solid rgba(199,154,69,${useTransform(borderOpacity, (o) => o)})`,
         }}
       >
         {/* Subtle scanning line — only at top */}
@@ -278,7 +278,7 @@ const Navbar = () => {
           {!scrolled && (
             <motion.div
               className="absolute bottom-0 left-0 right-0 h-px"
-              style={{ background: "linear-gradient(90deg, transparent, rgba(200,241,53,0.4), transparent)" }}
+              style={{ background: "linear-gradient(90deg, transparent, rgba(199,154,69,0.4), transparent)" }}
               initial={{ scaleX: 0, opacity: 0 }}
               animate={{ scaleX: 1, opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -299,28 +299,22 @@ const Navbar = () => {
               {/* Animated dot */}
               <motion.span
                 className="w-2 h-2 rounded-full flex-shrink-0"
-                style={{ backgroundColor: "#c8f135" }}
+                style={{ backgroundColor: "#c79a45" }}
                 animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               />
 
               <span
                 className={`${orbitron.className} text-lg md:text-xl lg:text-2xl font-bold tracking-wider`}
-                style={{
-                  background: "linear-gradient(90deg, #ffffff 0%, #c8f135 50%, #ffffff 100%)",
-                  backgroundSize: "200% 100%",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
+                style={{ color: "#f2ede3" }}
               >
-                OPRIME TECH
+                OPRIME <span style={{ color: "#c79a45" }}>TECH</span>
               </span>
 
               {/* Glow on hover */}
               <motion.span
                 className="absolute -inset-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{ background: "radial-gradient(ellipse, rgba(200,241,53,0.1), transparent 70%)" }}
+                style={{ background: "radial-gradient(ellipse, rgba(199,154,69,0.1), transparent 70%)" }}
               />
             </Link>
           </motion.div>
@@ -341,9 +335,9 @@ const Navbar = () => {
           {/* Mobile hamburger */}
           <motion.button
             className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-full"
-            style={{ border: "1px solid rgba(200,241,53,0.25)" }}
+            style={{ border: "1px solid rgba(199,154,69,0.25)" }}
             onClick={() => setNavbarOpen(!navbarOpen)}
-            whileHover={{ borderColor: "rgba(200,241,53,0.6)", backgroundColor: "rgba(200,241,53,0.05)" }}
+            whileHover={{ borderColor: "rgba(199,154,69,0.6)", backgroundColor: "rgba(199,154,69,0.05)" }}
             whileTap={{ scale: 0.92 }}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -354,7 +348,7 @@ const Navbar = () => {
               <motion.span
                 key={i}
                 className="block h-px rounded-full"
-                style={{ backgroundColor: "#c8f135" }}
+                style={{ backgroundColor: "#c79a45" }}
                 animate={
                   navbarOpen
                     ? i === 0 ? { rotate: 45, y: 6, width: "20px" }

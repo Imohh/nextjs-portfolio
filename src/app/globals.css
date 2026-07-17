@@ -4,14 +4,14 @@
 
 :root {
   /* Colors */
-  --color-lime: #d4ff00;
-  --color-dark-green: #0a1f0f;
-  --color-dark: #0a0a0a;
-  --color-grey-1: #1a1a1a;
-  --color-grey-2: #2a2a2a;
-  --color-light: #fafafa;
-  --color-white: #ffffff;
-  --color-black: #000000;
+  --color-lime: #c79a45;
+  --color-dark-green: #1c1712;
+  --color-dark: #14120e;
+  --color-grey-1: #1a1712;
+  --color-grey-2: #26221b;
+  --color-light: #f2ede3;
+  --color-white: #f5f1e8;
+  --color-black: #100e0a;
 
   /* Animation */
   --duration-default: 0.75s;
@@ -21,9 +21,9 @@
   --font-size-display: clamp(3rem, 8vw, 8.25rem);
 
   /* Foreground/Background */
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 10, 10, 10;
-  --background-end-rgb: 10, 10, 10;
+  --foreground-rgb: 242, 237, 227;
+  --background-start-rgb: 20, 18, 14;
+  --background-end-rgb: 20, 18, 14;
 }
 
 * {
@@ -150,10 +150,7 @@ body {
 /* Custom components */
 @layer components {
   .gradient-text {
-    background: linear-gradient(135deg, var(--color-lime) 0%, #86efac 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-lime);
   }
 
   .btn-primary {

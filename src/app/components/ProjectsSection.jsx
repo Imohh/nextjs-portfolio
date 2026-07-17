@@ -23,11 +23,11 @@ const projectsData = [
   },
   {
     id: 3,
-    title: "Learnbuddie",
-    description: "A comprehensive learning platform designed for students to excel in their educational journey.",
-    image: "/images/projects/learnbuddie.png",
+    title: "Yacht Crew Center",
+    description: "A platform connecting crew members, suppliers, and service providers across the yachting industry.",
+    image: "/images/projects/ycc.png",
     tag: ["All", "Web"],
-    previewUrl: "https://learnbuddie.com",
+    previewUrl: "https://yachtcrewcenter.com",
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const projectsData = [
     title: "Glintz Photography",
     description: "A stunning photography showcase website featuring professional photography services.",
     image: "/images/projects/glintz.png",
-    tag: ["All", "Mobile"],
+    tag: ["All", "Web"],
     previewUrl: "https://glintzphotography.org",
   },
   {
@@ -55,11 +55,11 @@ const projectsData = [
   },
   {
     id: 7,
-    title: "Grep",
-    description: "Modern delivery app where users track orders and connect with delivery personnel in real-time.",
-    image: "/images/projects/grep.png",
+    title: "Could It Be Love",
+    description: "Fashion e-commerce storefront for the CIBL label, built to showcase and sell each new collection.",
+    image: "/images/projects/coulditbelove.png",
     tag: ["All", "Web"],
-    previewUrl: "https://grep-website.vercel.app",
+    previewUrl: "https://coulditbelove.com",
   },
 ];
 
@@ -102,7 +102,7 @@ const ProjectsSection = () => {
             whileInView={{ opacity: 1 }}
             className="inline-block px-4 py-2 bg-accent-lime/10 border border-accent-lime/20 rounded-full text-accent-lime text-sm font-medium tracking-wide mb-6"
           >
-            ✦ OUR WORK
+            OUR WORK
           </motion.span>
           <h2 className="text-display-sm lg:text-display-md font-black text-white mb-6">
             Projects That
