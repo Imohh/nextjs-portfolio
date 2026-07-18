@@ -144,7 +144,7 @@ const HeroSection = () => {
             ref={titleRef}
             className="text-white font-black leading-[0.9] overflow-hidden mb-6"
           >
-            <span className="block text-[clamp(3.5rem,11vw,10rem)] tracking-[-0.03em]">
+            <span className="block text-[clamp(3rem,11vw,10rem)] tracking-[-0.03em]">
               {splitText("Oprime ")}
               <span className="text-accent-lime">{splitText("Tech")}</span>
             </span>
