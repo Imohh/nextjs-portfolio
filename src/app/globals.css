@@ -72,7 +72,7 @@ body {
 
 /* Typography Hierarchy */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-display), -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;

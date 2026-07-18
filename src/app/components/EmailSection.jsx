@@ -97,7 +97,7 @@ const EmailSection = () => {
                   </div>
                   <div>
                     <p className="text-sm text-secondary-400">Email</p>
-                    <p className="text-white font-medium">hello@oprime.tech</p>
+                    <p className="text-white font-medium">hello@oprimetech.com.ng</p>
                   </div>
                 </motion.div>
 

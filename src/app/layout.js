@@ -1,5 +1,5 @@
 import './globals.css'
-import { Inter, Space_Grotesk } from 'next/font/google'
+import { Inter, Archivo } from 'next/font/google'
 
 // Modern, clean body font - excellent readability
 const inter = Inter({
@@ -9,12 +9,12 @@ const inter = Inter({
   weight: ['300', '400', '500', '600', '700'],
 })
 
-// Bold, geometric display font - perfect for headings
-const spaceGrotesk = Space_Grotesk({
+// Serious, authoritative grotesque - display / headings
+const archivo = Archivo({
   subsets: ['latin'],
-  variable: '--font-space-grotesk',
+  variable: '--font-display',
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700', '800', '900'],
 })
 
 export const metadata = {
@@ -25,7 +25,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${archivo.variable}`}>
       <head>
         <link rel="apple-touch-icon" href="/images/logo.png" />
         <link rel="icon" href="/images/logo.png" />

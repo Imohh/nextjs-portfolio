@@ -16,8 +16,11 @@ const HeroSection = () => {
     offset: ["start start", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  // Cinematic parallax: image drifts slower than content, content fades on scroll
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.18]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -26,8 +29,8 @@ const HeroSection = () => {
       const centerY = window.innerHeight / 2;
 
       setMousePosition({
-        x: (clientX - centerX) * 0.02,
-        y: (clientY - centerY) * 0.02
+        x: (clientX - centerX) * 0.015,
+        y: (clientY - centerY) * 0.015
       });
     };
 
@@ -38,14 +41,14 @@ const HeroSection = () => {
       const chars = titleRef.current.querySelectorAll('.char');
       gsap.fromTo(
         chars,
-        { y: 100, opacity: 0 },
+        { y: 120, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.75,
+          duration: 0.9,
           ease: 'cubic-bezier(0.65, 0.05, 0, 1)',
-          stagger: 0.02,
-          delay: 0.2
+          stagger: 0.04,
+          delay: 0.35
         }
       );
     }
@@ -56,7 +59,7 @@ const HeroSection = () => {
   const splitText = (text) => {
     return text.split('').map((char, index) => (
       <span key={index} className="char inline-block">
-        {char === ' ' ? '\u00A0' : char}
+        {char === ' ' ? ' ' : char}
       </span>
     ));
   };
@@ -64,193 +67,153 @@ const HeroSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ paddingTop: '0' }}
+      className="relative min-h-screen w-full flex flex-col justify-end overflow-hidden"
     >
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent-dark-green via-dark to-dark opacity-80" />
-
-      {/* Floating orbs */}
+      {/* ── Full-bleed cinematic photo (Ken-Burns + mouse drift) ── */}
       <motion.div
-        className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-lime/[0.06] rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          x: [0, 30, 0],
-          y: [0, -30, 0],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-500/[0.06] rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.3, 1],
-          x: [0, -40, 0],
-          y: [0, 40, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
-      <motion.div
-        className="relative z-10 container mx-auto px-6 lg:px-12"
-        style={{ y, opacity }}
+        className="absolute inset-0"
+        style={{ y: imageY, scale: imageScale }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Content */}
-          <div className="col-span-1 lg:col-span-7 text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mb-6"
-            >
-              <span className="inline-block px-4 py-2 bg-accent-lime/10 border border-accent-lime/20 rounded-full text-accent-lime text-sm font-medium tracking-wide">
-                DIGITAL EXCELLENCE
-              </span>
-            </motion.div>
+        <motion.div
+          className="absolute inset-0"
+          animate={{ x: mousePosition.x, y: mousePosition.y }}
+          transition={{ type: "spring", stiffness: 60, damping: 20 }}
+        >
+          <Image
+            src="/images/hero-images.jpeg"
+            alt="Oprime Tech studio"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+        </motion.div>
+      </motion.div>
 
-            <h1
-              ref={titleRef}
-              className="text-white mb-6 overflow-hidden"
-            >
-              <div className="text-display-md lg:text-display-lg font-extrabold mb-2">
-                {splitText("Hello, we're")}
-              </div>
-              <div className="text-display-lg lg:text-display-xl font-black gradient-text">
-                {splitText("Oprime Tech")}
-              </div>
-            </h1>
+      {/* ── Colour grade + legibility scrims ── */}
+      {/* warm tone tie-in with the amber palette */}
+      <div className="absolute inset-0 bg-[#c79a45] mix-blend-soft-light opacity-25 pointer-events-none" />
+      {/* base dim */}
+      <div className="absolute inset-0 bg-dark/25 pointer-events-none" />
+      {/* bottom scrim for the headline */}
+      <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/75 to-transparent pointer-events-none" />
+      {/* left scrim so text stays readable over busy areas */}
+      <div className="absolute inset-0 bg-gradient-to-r from-dark/85 via-dark/20 to-transparent pointer-events-none" />
+      {/* top scrim keeps the navbar legible */}
+      <div className="absolute inset-0 h-1/3 bg-gradient-to-b from-dark/80 to-transparent pointer-events-none" />
+      {/* vignette */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ boxShadow: "inset 0 0 220px 40px rgba(8,6,3,0.85)" }}
+      />
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 0.8 }}
-              className="mb-4 text-2xl lg:text-4xl font-bold text-white"
-            >
-              <span className="text-secondary-400">Experts in: </span>
-              <TypeAnimation
-                sequence={[
-                  "Web Development",
-                  1500,
-                  "Mobile Applications",
-                  1500,
-                  "UI/UX Design",
-                  1500,
-                  "Digital Innovation",
-                  1500,
-                ]}
-                wrapper="span"
-                speed={50}
-                className="gradient-text"
-                repeat={Infinity}
-              />
-            </motion.div>
+      {/* ── Editorial vertical caption, right edge ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.55 }}
+        transition={{ duration: 1, delay: 1.6 }}
+        className="hidden lg:flex absolute top-1/2 right-6 -translate-y-1/2 items-center gap-4"
+        style={{ writingMode: "vertical-rl" }}
+      >
+        <span className="text-xs tracking-[0.4em] text-secondary-300 uppercase">
+          Digital Studio — Portfolio ’25
+        </span>
+        <span className="h-16 w-px bg-accent-lime/50" />
+      </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 1 }}
-              className="text-secondary-300 text-lg lg:text-xl mb-8 max-w-2xl text-balance mx-auto lg:mx-0"
-            >
-              Established in 2021, we&apos;re a pioneering force in the digital realm,
-              dedicated to helping brands thrive in the online landscape through exceptional
-              websites and innovative mobile applications.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.75, delay: 1.2 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <Link
-                href="/#contact"
-                className="group relative px-8 py-4 bg-accent-lime text-dark font-bold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-accent-lime/20"
-              >
-                <span className="relative z-10">Start Your Project</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-lime opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </Link>
-
-              <Link
-                href="/#projects"
-                className="px-8 py-4 border-2 border-accent-lime/30 text-white font-bold rounded-full hover:bg-accent-lime/10 hover:border-accent-lime transition-all duration-300"
-              >
-                View Our Work
-              </Link>
-            </motion.div>
-          </div>
-
-          {/* Image with parallax effect */}
+      {/* ── Content, anchored bottom-left ── */}
+      <motion.div
+        style={{ y: contentY, opacity: contentOpacity }}
+        className="relative z-10 container mx-auto px-6 lg:px-12 pb-16 lg:pb-24"
+      >
+        <div className="max-w-4xl">
+          {/* Eyebrow */}
           <motion.div
-            className="col-span-1 lg:col-span-5 relative"
-            style={{
-              x: mousePosition.x,
-              y: mousePosition.y
-            }}
-            transition={{ type: "spring", stiffness: 150, damping: 15 }}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="flex items-center gap-4 mb-6"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.75, delay: 0.5 }}
-              className="relative w-full max-w-[500px] mx-auto"
+            <span className="h-px w-10 bg-accent-lime" />
+            <span className="text-accent-lime text-xs md:text-sm font-medium tracking-[0.35em] uppercase">
+              Digital Studio · Est. 2021
+            </span>
+          </motion.div>
+
+          {/* Headline */}
+          <h1
+            ref={titleRef}
+            className="text-white font-black leading-[0.9] overflow-hidden mb-6"
+          >
+            <span className="block text-[clamp(3.5rem,11vw,10rem)] tracking-[-0.03em]">
+              {splitText("Oprime ")}
+              <span className="text-accent-lime">{splitText("Tech")}</span>
+            </span>
+          </h1>
+
+          {/* Kinetic tagline */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 1 }}
+            className="text-xl md:text-3xl font-semibold text-secondary-100 mb-8 max-w-2xl"
+          >
+            We craft{" "}
+            <TypeAnimation
+              sequence={[
+                "websites that convert.",
+                1600,
+                "apps people keep open.",
+                1600,
+                "brands that stand out.",
+                1600,
+                "digital products, end to end.",
+                1600,
+              ]}
+              wrapper="span"
+              speed={50}
+              className="text-accent-lime"
+              repeat={Infinity}
+            />
+          </motion.div>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 1.2 }}
+            className="flex flex-col sm:flex-row gap-4"
+          >
+            <Link
+              href="/#contact"
+              className="group relative px-8 py-4 bg-accent-lime text-dark font-bold rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-accent-lime/25"
             >
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-accent-lime/10 rounded-[2rem] blur-3xl scale-105" />
+              <span className="relative z-10">Start a project</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 to-accent-lime opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </Link>
 
-              {/* Main image container */}
-              <div className="relative rounded-[2rem] bg-gradient-to-br from-accent-lime/20 to-primary-500/20 p-1">
-                <div className="rounded-[1.85rem] bg-accent-grey-1 w-full aspect-[3/4] relative overflow-hidden">
-                  <Image
-                    src="/images/hero-images.jpeg"
-                    alt="Oprime Tech"
-                    fill
-                    className="object-cover object-center hover:scale-105 transition-transform duration-700"
-                    priority
-                  />
-                  {/* Subtle bottom fade for depth */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark/40 to-transparent" />
-                </div>
-              </div>
-
-              {/* Decorative elements */}
-              <motion.div
-                className="absolute -top-4 -right-4 w-24 h-24 border-2 border-accent-lime/30 rounded-full"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              />
-              <motion.div
-                className="absolute -bottom-6 -left-6 w-32 h-32 border-2 border-primary-500/30 rounded-full"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              />
-            </motion.div>
+            <Link
+              href="/#projects"
+              className="px-8 py-4 border border-white/25 text-white font-bold rounded-full backdrop-blur-sm hover:bg-white/10 hover:border-white/60 transition-all duration-300"
+            >
+              View our work
+            </Link>
           </motion.div>
         </div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* ── Scroll indicator, bottom-right ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 right-8 hidden md:flex flex-col items-center gap-2 z-10"
       >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="flex flex-col items-center gap-2 text-secondary-400"
-        >
-          <span className="text-sm tracking-widest">SCROLL</span>
-          <div className="w-[1px] h-16 bg-gradient-to-b from-accent-lime to-transparent" />
-        </motion.div>
+        <span className="text-[0.65rem] tracking-[0.4em] text-secondary-300 uppercase">Scroll</span>
+        <motion.span
+          animate={{ y: [0, 12, 0] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+          className="block w-px h-14 bg-gradient-to-b from-accent-lime to-transparent"
+        />
       </motion.div>
     </section>
   );
