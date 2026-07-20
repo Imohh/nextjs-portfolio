@@ -123,7 +123,7 @@ const HeroSection = () => {
       {/* ── Content, anchored bottom-left ── */}
       <motion.div
         style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-10 container mx-auto px-6 lg:px-12 pb-16 lg:pb-24"
+        className="relative z-10 container mx-auto px-6 lg:px-12 pb-40 sm:pb-24 lg:pb-24"
       >
         <div className="max-w-4xl">
           {/* Eyebrow */}
